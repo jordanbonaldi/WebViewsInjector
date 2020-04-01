@@ -1,0 +1,108 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+group 'net.neferett'
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+def versionPropsFile = rootProject.file("version.properties")
+def versionProperties = new Properties()
+versionProperties.load(new FileInputStream(versionPropsFile))
+
+def getArtificatId = { ->
+    return "webviewsinjector" // Replace with library name ID
+}
+
+publishing {
+    publications {
+        def getVersion = { ->
+            def build = versionProperties['VERSION_BUILD'].toInteger() + 1
+            def code = versionProperties['VERSION_CODE'].toInteger()
+
+            if (build >= 10) {
+                build = 0
+                code++
+            }
+
+            versionProperties['VERSION_CODE'] = code.toString()
+            versionProperties['VERSION_BUILD'] = build.toString()
+            versionProperties.store(versionPropsFile.newWriter(), null)
+
+            return versionProperties['VERSION_NAME'] + "." + versionProperties['VERSION_CODE'] + "." + versionProperties['VERSION_BUILD']
+        }
+        bar(MavenPublication) {
+            groupId 'net.neferett' // Replace with group ID
+            artifactId getArtificatId()
+            version getVersion()
+            artifact("$buildDir/outputs/aar/${getArtificatId}-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            /** Configure path of your package repository on Github
+             ** Replace GITHUB_USERID with your/organisation Github userID
+             ** and REPOSITORY with the repository name on GitHub
+             */
+            url = uri("https://maven.pkg.github.com/jordanbonaldi/WebViewsInjector")
+            credentials {
+                /** Create github.properties in root project folder file with
+                 ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN
+                 ** Set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
+
+                username = githubProperties['gpr.usr']
+                password = githubProperties['gpr.key']
+            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        androidTest.manifest.srcFile "src/androidTest/AndroidManifest.xml"
+        androidTest.java.srcDirs += 'src/androidTest/java/net.neferett.webviewsinjector'
+        main { res.srcDirs = ['src/main/res', 'src/androidTest/res/'] }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.hamcrest:hamcrest-library:1.3'
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+    androidTestImplementation('com.android.support.test:runner:1.1.0') {
+        exclude module: 'support-annotations'
+    }
+
+    // Set this dependency to use JUnit 4 rules
+    androidTestImplementation('com.android.support.test:rules:1.1.0-alpha') {
+        exclude module: 'support-annotations'
+    }
+}

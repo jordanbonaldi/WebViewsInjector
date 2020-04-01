@@ -4,14 +4,25 @@ Auto Login System based on WebView and Generic LoginService
 
 # Current Services!
 
-  - Google.com Account automated connection
-  - Hotels.com automated connection
-  - Strava.com automated connection
-  - Booking.com automated connection
-  - Expedia.com automated connection
-  - Trainline automated connection
-  - Twitter automated connection
-  - Facebook automated connection
+Research Engine:
+Google.com (Maps)
+
+Travelling Websites:
+Hotels.com
+Booking.com
+Expedia.com
+Trainline
+Agoda (Not Implemented Yet)
+AirBNB (Not Implemented Yet)
+
+Online Social Networks:
+Twitter
+Facebook
+Instagram (Not Implemented Yet)
+Pinterest (Not Implemented Yet)
+
+Sports:
+Strava.com
 
 You can also:
   - Create any automated login service

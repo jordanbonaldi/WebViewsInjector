@@ -22,10 +22,9 @@ public class TestConnectionActivity extends AppCompatActivity implements Adapter
 
     private LoginService loginService;
     private FrameLayout webview;
+    private Button button;
     private EditText login;
     private EditText password;
-    private Spinner spinner;
-    private Button button;
     private ServiceManager serviceManager = new ServiceManager(this);
 
     private ArrayAdapter<String> loginServiceToAdapter() {
@@ -42,18 +41,23 @@ public class TestConnectionActivity extends AppCompatActivity implements Adapter
         return adapter;
     }
 
+    private void loadViewComponents() {
+        this.button = findViewById(R.id.button);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
+        webview = findViewById(R.id.webview);
+
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setAdapter(this.loginServiceToAdapter());
+        spinner.setOnItemSelectedListener(this);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_login);
 
-        button = findViewById(R.id.button);
-        password = findViewById(R.id.password);
-        login = findViewById(R.id.login);
-        webview = findViewById(R.id.webview);
-        this.spinner = findViewById(R.id.spinner);
-        this.spinner.setAdapter(this.loginServiceToAdapter());
-        this.spinner.setOnItemSelectedListener(this);
+        this.loadViewComponents();
 
         button.setOnClickListener(view -> {
             String login = this.login.getEditableText().toString();

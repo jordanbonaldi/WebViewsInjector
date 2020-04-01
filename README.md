@@ -29,9 +29,6 @@ Add INTERNET permission to your android application
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
 ```
-To add the .aar module to your project follow this:
-
-https://stackoverflow.com/a/34919810
 
 ### How to use it
 
@@ -212,10 +209,6 @@ PriVELT
 Android application to centralise known data from different services.
 The project is funded by PriVELT (https://privelt.ac.uk/).
 
-Contributors
-----
-- [Jordan Bonaldi (Back End API Solution)](http://github.com/jordanbonaldi/)
-- [Lucas Benkemoun (Front End Solution)](https://github.com/LeBenki)
 
 License
 ----

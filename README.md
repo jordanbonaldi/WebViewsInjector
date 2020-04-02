@@ -40,7 +40,13 @@ Install the dependency with Gradle (only authorised developers) inside your Main
 ```
 Don't forget to add maven central in your repositories:
 ```
-    mavenCentral()
+    buildscript {
+      repositories {
+          google()
+          jcenter()
+          mavenCentral()
+      }
+    }
 ```
 Add INTERNET permission to your android application
 ```xml

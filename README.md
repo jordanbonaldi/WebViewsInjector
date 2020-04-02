@@ -4,14 +4,25 @@ Auto Login System based on WebView and Generic LoginService
 
 # Current Services!
 
-  - Google.com Account automated connection
-  - Hotels.com automated connection
-  - Strava.com automated connection
-  - Booking.com automated connection
-  - Expedia.com automated connection
-  - Trainline automated connection
-  - Twitter automated connection
-  - Facebook automated connection
+Research Engine:
+- Google.com (Maps)
+
+Travelling Websites:
+- Hotels.com
+- Booking.com
+- Expedia.com
+- Trainline
+- Agoda (Not Implemented Yet)
+- AirBNB (Not Implemented Yet)
+
+Online Social Networks:
+- Twitter
+- Facebook
+- Instagram (Not Implemented Yet)
+- Pinterest (Not Implemented Yet)
+
+Sports:
+- Strava.com
 
 You can also:
   - Create any automated login service
@@ -29,9 +40,6 @@ Add INTERNET permission to your android application
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
 ```
-To add the .aar module to your project follow this:
-
-https://stackoverflow.com/a/34919810
 
 ### How to use it
 
@@ -212,10 +220,6 @@ PriVELT
 Android application to centralise known data from different services.
 The project is funded by PriVELT (https://privelt.ac.uk/).
 
-Contributors
-----
-- [Jordan Bonaldi (Back End API Solution)](http://github.com/jordanbonaldi/)
-- [Lucas Benkemoun (Front End Solution)](https://github.com/LeBenki)
 
 License
 ----

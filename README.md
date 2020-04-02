@@ -1,8 +1,8 @@
 # WebView AutoLogin and JavaScript asynchronous and synchronous injector
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.neferett/webviewsinjector/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/net.neferett/webviewsinjector)
 
 Auto Login System based on WebView and Generic LoginService
-
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 # Current Services!
 

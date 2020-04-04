@@ -5,27 +5,27 @@
 
 Auto Login System based on WebView and Generic LoginService
 
-# Current Services!
+## Current Services
 
 Research Engine:
-- Google.com (Maps)
+  - Google.com (Maps)
 
 Travelling Websites:
-- Hotels.com
-- Booking.com
-- Expedia.com
-- Trainline
-- Agoda (Not Implemented Yet)
-- AirBNB (Not Implemented Yet)
+  - Hotels.com
+  - Booking.com
+  - Expedia.com
+  - Trainline
+  - Agoda (Not Implemented Yet)
+  - AirBNB (Not Implemented Yet)
 
 Online Social Networks:
-- Twitter
-- Facebook
-- Instagram (Not Implemented Yet)
-- Pinterest (Not Implemented Yet)
+  - Twitter
+  - Facebook
+  - Instagram (Not Implemented Yet)
+  - Pinterest (Not Implemented Yet)
 
 Sports:
-- Strava.com
+  - Strava.com
 
 You can also:
   - Create any automated login service
@@ -40,7 +40,7 @@ Install the dependency with Gradle (only authorised developers) inside your Main
     }
 ```
 Don't forget to add maven central in your repositories:
-```
+```groovy
     buildscript {
       repositories {
           google()
@@ -227,12 +227,12 @@ Java example:
         }
     });
 ```
+
 PriVELT
 ----
 
 Android application to centralise known data from different services.
 The project is funded by PriVELT (https://privelt.ac.uk/).
-
 
 License
 ----

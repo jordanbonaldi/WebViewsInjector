@@ -2,6 +2,7 @@
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.neferett/webviewsinjector/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/net.neferett/webviewsinjector)
 [![GitHub release](https://img.shields.io/github/release/jordanbonaldi/WebViewsInjector.svg)](https://GitHub.com/jordanbonaldi/WebViewsInjector/releases/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51fb5301094a4ed686d10f26e85f2338)](https://www.codacy.com/manual/jordanbonaldi/WebViewsInjector?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jordanbonaldi/WebViewsInjector&amp;utm_campaign=Badge_Grade)
 
 Auto Login System based on WebView and Generic LoginService
 

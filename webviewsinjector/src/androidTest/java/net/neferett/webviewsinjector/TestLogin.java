@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -30,7 +31,7 @@ public class TestLogin {
     public void useAppContext() throws InterruptedException {
         Thread.sleep(60000);
 
-        assert activityRule.getActivity().isConnected();
+        assertTrue(activityRule.getActivity().isConnected());
     }
 
 }

@@ -8,7 +8,6 @@ package net.neferett.webviewsinjector.settings;
 
 import android.os.Build;
 import android.webkit.CookieManager;
-import android.webkit.WebView;
 
 import net.neferett.webviewsinjector.summoner.Summoner;
 import lombok.AllArgsConstructor;

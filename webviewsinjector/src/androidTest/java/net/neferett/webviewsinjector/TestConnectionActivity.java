@@ -17,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import net.neferett.webviewsinjector.response.ResponseCallback;
 import net.neferett.webviewsinjector.response.ResponseEnum;
 import net.neferett.webviewsinjector.services.LoginService;
@@ -24,6 +26,8 @@ import net.neferett.webviewsinjector.services.ServiceManager;
 
 import java.util.ArrayList;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class TestConnectionActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private LoginService loginService;
@@ -32,6 +36,8 @@ public class TestConnectionActivity extends AppCompatActivity implements Adapter
     private EditText login;
     private EditText password;
     private ServiceManager serviceManager = new ServiceManager(this);
+
+    private boolean connected = false;
 
     private ArrayAdapter<String> loginServiceToAdapter() {
         ArrayList<String> stringArrayList = new ArrayList<>();
@@ -79,6 +85,8 @@ public class TestConnectionActivity extends AppCompatActivity implements Adapter
                                 Toast.makeText(TestConnectionActivity.this,
                                         "Successfully logged on " + loginService.getName(), Toast.LENGTH_LONG).show();
                                 Log.d("Jordan", "Successfully logged on " + loginService.getName());
+
+                                connected = true;
                             }
                         }
                     }

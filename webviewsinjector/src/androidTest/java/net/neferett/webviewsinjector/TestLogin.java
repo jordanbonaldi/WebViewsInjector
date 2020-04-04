@@ -30,7 +30,7 @@ public class TestLogin {
     public void useAppContext() throws InterruptedException {
         Thread.sleep(60000);
 
-        activityRule.getActivity();
+        assert activityRule.getActivity().isConnected();
     }
 
 }

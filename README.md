@@ -8,28 +8,28 @@ Auto Login System based on WebView and Generic LoginService
 ## Current Services
 
 Research Engine:
-  - Google.com (Maps)
+- Google.com (Maps)
 
 Travelling Websites:
-  - Hotels.com
-  - Booking.com
-  - Expedia.com
-  - Trainline
-  - Agoda (Not Implemented Yet)
-  - AirBNB (Not Implemented Yet)
+- Hotels.com
+- Booking.com
+- Expedia.com
+- Trainline
+- Agoda (Not Implemented Yet)
+- AirBNB (Not Implemented Yet)
 
 Online Social Networks:
-  - Twitter
-  - Facebook
-  - Instagram (Not Implemented Yet)
-  - Pinterest (Not Implemented Yet)
+- Twitter
+- Facebook
+- Instagram (Not Implemented Yet)
+- Pinterest (Not Implemented Yet)
 
 Sports:
-  - Strava.com
+- Strava.com
 
 You can also:
-  - Create any automated login service
-  - Inject any JavaScript code inside WebViews
+- Create any automated login service
+- Inject any JavaScript code inside WebViews
   
 ### Installation
 

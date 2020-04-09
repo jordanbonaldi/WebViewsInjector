@@ -37,7 +37,7 @@ You can also:
 Install the dependency with Gradle (only authorised developers) inside your Main Application
 ```java
     dependencies {
-        implementation 'net.neferett.webviewsinjector:2.0.1'
+        implementation 'net.neferett:webviewsinjector:2.0.1'
     }
 ```
 Don't forget to add maven central in your repositories:

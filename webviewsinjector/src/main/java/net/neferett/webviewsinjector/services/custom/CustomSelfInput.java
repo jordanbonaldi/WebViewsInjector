@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package net.neferett.webviewsinjector.services.costum;
+package net.neferett.webviewsinjector.services.custom;
 
 import android.app.Activity;
 import android.content.Context;

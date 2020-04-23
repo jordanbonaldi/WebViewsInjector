@@ -15,7 +15,7 @@ import net.neferett.webviewsinjector.javascript.ElementValue;
 import net.neferett.webviewsinjector.login.StepEnum;
 import net.neferett.webviewsinjector.login.TypesAuthElement;
 import net.neferett.webviewsinjector.response.ResponseEnum;
-import net.neferett.webviewsinjector.services.costum.CustomSelfInput;
+import net.neferett.webviewsinjector.services.custom.CustomSelfInput;
 
 import java.util.HashMap;
 

@@ -53,7 +53,8 @@ public class ServiceManager {
         TRAINLINE(TrainlineService.class),
         STRAVA(StravaService.class),
         FACEBOOK(FacebookService.class),
-        TWITTER(TwitterService.class);
+        TWITTER(TwitterService.class),
+        INSTAGRAM(InstagramService.class);
 
         private final Class<? extends LoginService> loginServiceClazz;
     }

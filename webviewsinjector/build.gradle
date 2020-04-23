@@ -6,14 +6,14 @@ group 'net.neferett'
 ext {
     PUBLISH_GROUP_ID = 'net.neferett'
     PUBLISH_ARTIFACT_ID = 'webviewsinjector'
-    PUBLISH_VERSION = '2.0.1'
+    PUBLISH_VERSION = '2.0.3'
 }
 
 apply from: "${rootProject.projectDir}/publish-maven.gradle"
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 29

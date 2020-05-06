@@ -12,6 +12,12 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.experimental.Delegate;
+import net.neferett.webviewsinjector.services.osn.FacebookService;
+import net.neferett.webviewsinjector.services.osn.InstagramService;
+import net.neferett.webviewsinjector.services.osn.TwitterService;
+import net.neferett.webviewsinjector.services.researchengine.GoogleService;
+import net.neferett.webviewsinjector.services.sport.StravaService;
+import net.neferett.webviewsinjector.services.travelling.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +60,7 @@ public class ServiceManager {
         STRAVA(StravaService.class),
         FACEBOOK(FacebookService.class),
         TWITTER(TwitterService.class),
+        AGODA(AgodaService.class),
         INSTAGRAM(InstagramService.class);
 
         private final Class<? extends LoginService> loginServiceClazz;

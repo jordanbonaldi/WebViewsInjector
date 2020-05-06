@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package net.neferett.webviewsinjector.services;
+package net.neferett.webviewsinjector.services.travelling;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,6 +20,7 @@ import net.neferett.webviewsinjector.login.TypesAuthElement;
 import net.neferett.webviewsinjector.response.ResponseCallback;
 import net.neferett.webviewsinjector.response.ResponseEnum;
 import lombok.SneakyThrows;
+import net.neferett.webviewsinjector.services.LoginService;
 
 import java.util.HashMap;
 import java.util.Objects;

@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package net.neferett.webviewsinjector.services;
+package net.neferett.webviewsinjector.services.osn;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,14 +18,14 @@ import net.neferett.webviewsinjector.services.custom.CustomSelfInput;
 
 import java.util.HashMap;
 
-public class InstagramService extends CustomSelfInput {
+public class TwitterService extends CustomSelfInput {
 
     /**
      *
      * @param context Main Activity Context
      */
-    public InstagramService(Context context) {
-        super("Instagram", StepEnum.ONE_STEP, context, "https://www.instagram.com/accounts/login/", 3, R.drawable.instagram, false);
+    public TwitterService(Context context) {
+        super("Twitter", StepEnum.ONE_STEP, context, "https://mobile.twitter.com/login", 3, R.drawable.ic_twitter_logo_blue, false);
     }
 
     @Override
@@ -33,6 +33,10 @@ public class InstagramService extends CustomSelfInput {
         if (this.typesAuthElementObjectHashMap == null)
             this.typesAuthElementObjectHashMap = new HashMap<>();
 
+        this.typesAuthElementObjectHashMap.put(
+                TypesAuthElement.BUTTON_LOGIN, new ElementValue(
+                        "querySelector", "div[data-testid=\"LoginForm_Login_Button\"]]", false
+                ));
     }
 
     /**
@@ -42,13 +46,13 @@ public class InstagramService extends CustomSelfInput {
     @Override
     protected HashMap<ResponseEnum, String> setupTests() {
         return new HashMap<ResponseEnum, String>(){{
-            put(ResponseEnum.FINISH_URL, "https://www.instagram.com/accounts/onetap/");
+            put(ResponseEnum.FINISH_URL, "https://mobile.twitter.com/home");
             put(ResponseEnum.CAPTCHA, "document.getElementById('FunCaptcha')");
         }};
     }
 
     public void waitAndAction(int delay, Runnable runnable) {
-        CustomSelfInput instance = InstagramService.this;
+        CustomSelfInput instance = TwitterService.this;
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
@@ -62,25 +66,16 @@ public class InstagramService extends CustomSelfInput {
 
     @Override
     public void signIn() {
-        this.waitAndAction(5, () -> ((Activity) InstagramService.this.getContext()).runOnUiThread(() -> injectJavaScript(
-                new ElementValue(
-                        "querySelector", "button[type=submit]", false
-                ).clickValue(), null
-        )));
+        this.waitAndAction(2, () -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER)));
     }
 
     @Override
     public void beforeSignIn() {
         this.waitAndAction(5, () -> {
-            this.getWebview().performLongClick();
-            ((Activity) InstagramService.this.getContext()).runOnUiThread(() -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_TAB)));
-            ((Activity) InstagramService.this.getContext()).runOnUiThread(() -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_TAB)));
-            this.waitAndAction(10, () -> {
-                injectingDataFromAuth(TypesAuthElement.USERNAME, (v) -> ((Activity) InstagramService.this.getContext()).runOnUiThread(() -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_TAB))));
-                injectingDataFromAuth(TypesAuthElement.PASSWORD, (v) -> ((Activity) InstagramService.this.getContext()).runOnUiThread(() -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_TAB))));
+            injectingDataFromAuth(TypesAuthElement.USERNAME, (v) -> ((Activity)TwitterService.this.getContext()).runOnUiThread(() -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_TAB))));
+            injectingDataFromAuth(TypesAuthElement.PASSWORD, (v) -> ((Activity)TwitterService.this.getContext()).runOnUiThread(() -> this.getWebview().dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_TAB))));
 
-                this.signIn();
-            });
+            this.signIn();
         });
     }
 }

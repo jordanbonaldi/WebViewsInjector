@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package net.neferett.webviewsinjector.services;
+package net.neferett.webviewsinjector.services.sport;
 
 import android.content.Context;
 import net.neferett.webviewsinjector.R;
@@ -12,6 +12,7 @@ import net.neferett.webviewsinjector.javascript.ElementValue;
 import net.neferett.webviewsinjector.login.StepEnum;
 import net.neferett.webviewsinjector.login.TypesAuthElement;
 import net.neferett.webviewsinjector.response.ResponseEnum;
+import net.neferett.webviewsinjector.services.LoginService;
 
 import java.util.HashMap;
 

@@ -4,7 +4,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-package net.neferett.webviewsinjector.services;
+package net.neferett.webviewsinjector.services.travelling;
 
 import android.app.Activity;
 import android.content.Context;
@@ -41,9 +41,8 @@ public class TrainlineService extends CustomSelfInput {
 
     @SneakyThrows
     public void signIn() {
-        CustomSelfInput instance = TrainlineService.this;
-        this.waitAndAction(5, () -> instance.webInjector.injectJavascript(constructJavaScriptMethod(TypesAuthElement.BUTTON_LOGIN), null, null));
-        this.waitAndAction(10, () -> instance.webInjector.injectJavascript(constructJavaScriptMethod(TypesAuthElement.BUTTON_LOGIN), null, null));
+        this.waitAndAction(5, () -> TrainlineService.this.getWebInjector().injectJavascript(constructJavaScriptMethod(TypesAuthElement.BUTTON_LOGIN), null, null));
+        this.waitAndAction(10, () -> TrainlineService.this.getWebInjector().injectJavascript(constructJavaScriptMethod(TypesAuthElement.BUTTON_LOGIN), null, null));
     }
 
     @SneakyThrows

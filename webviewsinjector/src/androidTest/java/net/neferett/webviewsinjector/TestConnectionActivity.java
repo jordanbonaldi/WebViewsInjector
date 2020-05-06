@@ -80,7 +80,7 @@ public class TestConnectionActivity extends AppCompatActivity implements Adapter
                             if (responseEnum == ResponseEnum.SUCCESS) {
                                 Toast.makeText(TestConnectionActivity.this,
                                         "Successfully logged on " + loginService.getName(), Toast.LENGTH_LONG).show();
-                                Log.d("Jordan", "Successfully logged on " + loginService.getName());
+                                Log.d("DEBUG", "Successfully logged on " + loginService.getName());
 
                                 connected = true;
                             }

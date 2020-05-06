@@ -9,6 +9,7 @@ package net.neferett.webviewsinjector.services.custom;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.webkit.ValueCallback;
@@ -21,6 +22,7 @@ import net.neferett.webviewsinjector.response.ResponseCallback;
 import net.neferett.webviewsinjector.response.ResponseEnum;
 import net.neferett.webviewsinjector.services.LoginService;
 import lombok.SneakyThrows;
+import net.neferett.webviewsinjector.services.travelling.AgodaService;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -29,6 +31,8 @@ public abstract class CustomSelfInput extends LoginService {
 
     protected HashMap<TypesAuthElement, Object> typesAuthElementObjectHashMap;
     protected ResponseCallback responseCallback;
+
+    private boolean tempLock = false;
 
     /**
      *
@@ -107,7 +111,11 @@ public abstract class CustomSelfInput extends LoginService {
                 if (!url.equalsIgnoreCase(CustomSelfInput.this.url))
                     return;
 
-                instance.beforeSignIn();
+                if (!tempLock) {
+                    tempLock = true;
+                    instance.beforeSignIn();
+                    waitAndAction(5, () -> ((Activity) getContext()).runOnUiThread(() -> tempLock = false));
+                }
             }
 
             @Override
@@ -117,7 +125,10 @@ public abstract class CustomSelfInput extends LoginService {
                         url.equalsIgnoreCase(instance.getStringFromInjector(ResponseEnum.PASSWORD_URL)))
                     this.launchSignIn();
 
-                if (url.contains(instance.getStringFromInjector(ResponseEnum.FINISH_URL)))
+                if (
+                    (instance.getStringFromInjector(ResponseEnum.FINISH_URL) != null && url.contains(instance.getStringFromInjector(ResponseEnum.FINISH_URL))) ||
+                    (instance.getStringFromInjector(ResponseEnum.FINAL_EQUALS_URL) != null && url.equals(instance.getStringFromInjector(ResponseEnum.FINAL_EQUALS_URL)))
+                )
                     instance.responseCallback.getResponse(ResponseEnum.SUCCESS, "Success");
 
                 else if (instance.responseCallback != null)
@@ -172,5 +183,18 @@ public abstract class CustomSelfInput extends LoginService {
                 ((delay * stepEnum.getMultiplicand())) * 1000);
 
         this.getWebInjector().load();
+    }
+
+    protected void waitAndAction(int delay, Runnable runnable) {
+        CustomSelfInput instance = this;
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        ((Activity)instance.getContext()).runOnUiThread(runnable);
+                    }
+                },
+                delay * 1000
+        );
     }
 }

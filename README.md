@@ -22,7 +22,7 @@ Travelling Websites:
 Online Social Networks:
 - Twitter
 - Facebook
-- Instagram (Not Implemented Yet)
+- Instagram
 - Pinterest (Not Implemented Yet)
 
 Sports:

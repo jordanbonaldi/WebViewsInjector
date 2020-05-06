@@ -16,7 +16,7 @@ Travelling Websites:
 - Booking.com
 - Expedia.com
 - Trainline
-- Agoda (Not Implemented Yet)
+- Agoda
 - AirBNB (Not Implemented Yet)
 
 Online Social Networks:

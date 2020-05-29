@@ -16,14 +16,13 @@ Travelling Websites:
 - Booking.com
 - Expedia.com
 - Trainline
-- Agoda (Not Implemented Yet)
-- AirBNB (Not Implemented Yet)
+- Agoda
 
 Online Social Networks:
 - Twitter
 - Facebook
 - Instagram
-- Pinterest (Not Implemented Yet)
+- Pinterest
 
 Sports:
 - Strava.com

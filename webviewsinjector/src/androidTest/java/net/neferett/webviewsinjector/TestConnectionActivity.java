@@ -21,6 +21,7 @@ import net.neferett.webviewsinjector.response.ResponseCallback;
 import net.neferett.webviewsinjector.response.ResponseEnum;
 import net.neferett.webviewsinjector.services.LoginService;
 import net.neferett.webviewsinjector.services.ServiceManager;
+import net.neferett.webviewsinjector.services.osn.PinterestService;
 
 import java.util.ArrayList;
 
@@ -44,8 +45,6 @@ public class TestConnectionActivity extends AppCompatActivity implements Adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, stringArrayList);
 
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
-        Log.d("jordan", stringArrayList.toString());
         return adapter;
     }
 

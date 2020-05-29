@@ -1,0 +1,3 @@
+./gradlew publishReleasePublicationToWebviewsinjectorRepository && ./gradlew closeAndReleaseRepository
+
+

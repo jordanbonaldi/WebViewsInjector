@@ -28,7 +28,7 @@ import java.util.Objects;
 @Data
 public abstract class LoginService {
 
-    private final Context context;
+    private Context context;
     private final String name;
     private final int drawableLogo;
     private final boolean mobile;

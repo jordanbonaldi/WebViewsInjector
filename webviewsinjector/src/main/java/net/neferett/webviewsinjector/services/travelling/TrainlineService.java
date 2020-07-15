@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class TrainlineService extends CustomSelfInput {
 
-    TrainlineService(final Context context) {
+    public TrainlineService(final Context context) {
         super("Trainline", StepEnum.ONE_STEP, context,
                 "https://www.thetrainline.com/my-account/login?redirectTo=%2Fmy-account%2Fbookings", 2, R.drawable.trainline, false);
     }

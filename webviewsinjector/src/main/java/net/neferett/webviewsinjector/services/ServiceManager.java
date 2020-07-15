@@ -26,9 +26,15 @@ import java.util.List;
 @Data
 public class ServiceManager {
 
-    /* Arg Constructor */
-        private final Context context;
-    /* end */
+    private final Context context;
+
+    /**
+     *
+     * @param context Application context
+     */
+    public ServiceManager(Context context) {
+        this.context = context;
+    }
 
     @Delegate
     private List<LoginService> serviceList = new ArrayList<>();

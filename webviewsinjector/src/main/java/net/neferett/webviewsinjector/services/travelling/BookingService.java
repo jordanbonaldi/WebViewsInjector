@@ -31,7 +31,7 @@ public class BookingService extends LoginService {
 
     private ResponseCallback responseCallback;
 
-    BookingService(final Context context) {
+    public BookingService(final Context context) {
         super("Booking", StepEnum.TWO_STEP, context,
                 "https://account.booking.com/", 2, R.drawable.booking, false);
     }
